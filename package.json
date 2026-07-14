@@ -1,0 +1,31 @@
+{
+  "name": "x360-ecom-finance-app",
+  "version": "1.0.0",
+  "description": "x360 Ecom Finance App — Finance reporting tool for a dropshipping e-commerce operation.",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "vite build",
+    "dev:server": "node server/index.js",
+    "dev:client": "vite",
+    "db:init": "node scripts/db-init.js"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^0.395.0",
+    "pg": "^8.12.0",
+    "postcss": "^8.4.38",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sqlite3": "^6.0.1",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.1"
+  }
+}
