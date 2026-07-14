@@ -1,5 +1,4 @@
 import pg from 'pg';
-import sqlite3 from 'sqlite3';
 import fs from 'fs';
 import path from 'path';
 
@@ -20,7 +19,10 @@ if (usePostgres) {
     ssl: { rejectUnauthorized: false }
   });
 } else {
+  // Only load sqlite3 (native module) when we actually need it locally.
+  // Importing it unconditionally breaks deploys on hosts without a matching glibc.
   console.log('Using SQLite database connection for local testing.');
+  const { default: sqlite3 } = await import('sqlite3');
   const dbPath = path.join(process.cwd(), 'x360_finance.db');
   sqliteDb = new sqlite3.Database(dbPath);
 }
