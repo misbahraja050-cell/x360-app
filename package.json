@@ -11,6 +11,7 @@
     "db:init": "node scripts/db-init.js"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -22,10 +23,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sqlite3": "^6.0.1",
-    "tailwindcss": "^3.4.4"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
   }
 }
