@@ -562,7 +562,14 @@ app.get('*', (req, res) => {
 });
 
 // Start Server
-app.listen(port, () => {
-  console.log(`x360 Ecom Finance App server running on port ${port}`);
-  bootstrapAdmin();
-});
+db.initDatabase()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`x360 Ecom Finance App server running on port ${port}`);
+      bootstrapAdmin();
+    });
+  })
+  .catch((err) => {
+    console.error('Database initialization failed:', err);
+    process.exit(1);
+  });
