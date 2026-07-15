@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS businesses (
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TRIGGER IF EXISTS update_businesses_updated_at ON businesses;
 CREATE TRIGGER update_businesses_updated_at
 BEFORE UPDATE ON businesses
 FOR EACH ROW
@@ -35,6 +36,7 @@ CREATE TABLE IF NOT EXISTS stores (
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TRIGGER IF EXISTS update_stores_updated_at ON stores;
 CREATE TRIGGER update_stores_updated_at
 BEFORE UPDATE ON stores
 FOR EACH ROW
@@ -53,6 +55,7 @@ CREATE TABLE IF NOT EXISTS users (
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TRIGGER IF EXISTS update_users_updated_at ON users;
 CREATE TRIGGER update_users_updated_at
 BEFORE UPDATE ON users
 FOR EACH ROW
@@ -91,6 +94,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS enforce_active_admin_on_delete_or_update ON users;
 CREATE TRIGGER enforce_active_admin_on_delete_or_update
 BEFORE DELETE OR UPDATE ON users
 FOR EACH ROW
@@ -139,6 +143,7 @@ CREATE TABLE IF NOT EXISTS custom_field_options (
     UNIQUE (field_key, option_label)
 );
 
+DROP TRIGGER IF EXISTS update_custom_field_options_updated_at ON custom_field_options;
 CREATE TRIGGER update_custom_field_options_updated_at
 BEFORE UPDATE ON custom_field_options
 FOR EACH ROW
